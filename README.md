@@ -6,10 +6,10 @@ Command line interface for MCPS (Model Context Protocol Server), allowing you to
 
 ```bash
 # Install globally
-npm install -g @jasonkneen/mcpsx
+npm install -g mcpsx
 
 # Or use with npx
-npx @jasonkneen/mcpsx
+npx @mcpsx
 ```
 
 ## Usage
@@ -23,15 +23,15 @@ The CLI can be accessed using any of these commands:
 mcpsx help
 
 # Start MCPS as a stdio server
-mcpsx stdio
+mcpsx run
 
 # Start with specific servers and tools
-mcpsx stdio --server="sleep"
-mcpsx stdio --servers="python,pytorch" --tool="predict"
+mcpsx run --server="sleep"
+mcpsx run --servers="python,pytorch" --tool="predict"
 
 # Server group management
 mcpsx groups add "python-stack" --servers="python,pytorch,huggingface"
-mcpsx stdio --servers="python-stack"
+mcpsx run --servers="python-stack"
 
 # Add a new MCP configuration
 mcpsx add "My Server" --command "node" --args "server.js"
@@ -63,7 +63,7 @@ MCPSX CLI provides powerful capabilities for working with Model Context Protocol
 Start MCPS as a stdio server. This is the main command used by the VSCode extension to communicate with MCP servers.
 
 ```bash
-mcpsx stdio [options]
+mcpsx run [options]
 ```
 
 Options:
@@ -75,19 +75,19 @@ Options:
 Examples:
 ```bash
 # Load all servers and tools
-mcpsx stdio
+mcpsx run
 
 # Load only the 'sleep' server
-mcpsx stdio --server="sleep"
+mcpsx run --server="sleep"
 
 # Load multiple servers
-mcpsx stdio --servers="python,pytorch"
+mcpsx run --servers="python,pytorch"
 
 # Load specific tools from specific servers
-mcpsx stdio --servers="python" --tools="predict,generate"
+mcpsx run --servers="python" --tools="predict,generate"
 
 # Use a server group
-mcpsx stdio --servers="python-stack"
+mcpsx run --servers="python-stack"
 ```
 
 ### `groups`
@@ -147,10 +147,10 @@ mcpsx groups add "ai-models" --servers="openai,anthropic,llama"
 mcpsx groups add "data-tools" --servers="pandas,numpy,sklearn"
 
 # Use a specific group
-mcpsx stdio --servers="ai-models"
+mcpsx run --servers="ai-models"
 
 # Combine groups with individual servers/tools
-mcpsx stdio --servers="ai-models,custom-server" --tools="predict"
+mcpsx run --servers="ai-models,custom-server" --tools="predict"
 ```
 
 ### `add`
