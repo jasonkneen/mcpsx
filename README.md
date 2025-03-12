@@ -1,15 +1,15 @@
-# MCPSX CLI
+# mcpsx cli
 
-Command line interface for MCPS (Model Context Protocol Server), allowing you to manage, query, and interact with Model Context Protocol (MCP) servers and tools.
+Command line interface for mcpsx (Model Context Protocol Server eXecutable), allowing you to manage, query, and interact with Model Context Protocol (MCP) servers and tools.
 
 ## Installation
 
 ```bash
 # Install globally
-npm install -g mcpsx
+npm install -g @jasonkneen/mcpsx
 
 # Or use with npx
-npx @mcpsx
+npx @jasonkneen/mcpsx
 ```
 
 ## Usage
