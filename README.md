@@ -1,3 +1,8 @@
+# VScode Extension
+
+The Extension is open-source and at https://github.com/jasonkneen/copilot-mcspx and in the mcspx-tweaks branch
+
+
 # mcpsx cli
 
 Command line interface for mcpsx (Model Context Protocol Server eXecutable), allowing you to manage, query, and interact with Model Context Protocol (MCP) servers and tools.
