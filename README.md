@@ -3,7 +3,7 @@
 The Extension is open-source and at https://github.com/jasonkneen/copilot-mcspx and in the mcspx-tweaks branch
 
 
-# mcpsx cli
+# mcpz cli
 
 Command line interface for mcpsx (Model Context Protocol Server eXecutable), allowing you to manage, query, and interact with Model Context Protocol (MCP) servers and tools.
 
@@ -11,49 +11,49 @@ Command line interface for mcpsx (Model Context Protocol Server eXecutable), all
 
 ```bash
 # Install globally
-npm install -g @jasonkneen/mcpsx
+npm install -g @mcpz/cli
 
 # Or use with npx
-npx @jasonkneen/mcpsx
+npx @mcpz/cli
 ```
 
 ## Usage
 
 The CLI can be accessed using any of these commands:
 - `mcps` (primary command)
-- `mcpsx` (extended alias)
+- `mcpz` (extended alias)
 
 ```bash
 # Show help
-mcpsx help
+mcpz help
 
 # Start MCPS as a stdio server
-mcpsx run
+mcpz run
 
 # Start with specific servers and tools
-mcpsx run --server="sleep"
-mcpsx run --servers="python,pytorch" --tool="predict"
+mcpz run --server="sleep"
+mcpz run --servers="python,pytorch" --tool="predict"
 
 # Server group management
-mcpsx groups add "python-stack" --servers="python,pytorch,huggingface"
-mcpsx run --servers="python-stack"
+mcpz groups add "python-stack" --servers="python,pytorch,huggingface"
+mmcpzcpsx run --servers="python-stack"
 
 # Add a new MCP configuration
-mcpsx add "My Server" --command "node" --args "server.js"
+mcpz add "My Server" --command "node" --args "server.js"
 
 # List MCP configurations
-mcpsx list
+mcpz list
 
 # Remove an MCP configuration
-mcpsx remove "My Server"
+mcpz remove "My Server"
 
 # Use a specific MCP configuration
-mcpsx use "My Server"
+mcpz use "My Server"
 ```
 
 ## Key Features
 
-MCPSX CLI provides powerful capabilities for working with Model Context Protocol servers:
+mcpz CLI provides powerful capabilities for working with Model Context Protocol servers:
 
 1. **Run Servers & Tools**: Start MCP servers and tools individually or in combination
 2. **Add & Remove**: Easily manage your MCP configurations
@@ -63,12 +63,12 @@ MCPSX CLI provides powerful capabilities for working with Model Context Protocol
 
 ## Commands
 
-### `stdio`
+### `run`
 
-Start MCPS as a stdio server. This is the main command used by the VSCode extension to communicate with MCP servers.
+Start mcpz as a stdio server. This is the main command used by the VSCode extension to communicate with MCP servers.
 
 ```bash
-mcpsx run [options]
+mcpz run [options]
 ```
 
 Options:
@@ -80,19 +80,19 @@ Options:
 Examples:
 ```bash
 # Load all servers and tools
-mcpsx run
+mcpz run
 
 # Load only the 'sleep' server
-mcpsx run --server="sleep"
+mcpz run --server="sleep"
 
 # Load multiple servers
-mcpsx run --servers="python,pytorch"
+mcpz run --servers="python,pytorch"
 
 # Load specific tools from specific servers
-mcpsx run --servers="python" --tools="predict,generate"
+mcpz run --servers="python" --tools="predict,generate"
 
 # Use a server group
-mcpsx run --servers="python-stack"
+mcpz run --servers="python-stack"
 ```
 
 ### `groups`
@@ -100,7 +100,7 @@ mcpsx run --servers="python-stack"
 Manage server and tool groups. Groups allow you to create collections of MCP servers and tools that can be used together.
 
 ```bash
-mcpsx groups <command>
+mcpz groups <command>
 ```
 
 Subcommands:
@@ -110,16 +110,16 @@ Subcommands:
 Create a new server group.
 
 ```bash
-mcpsx groups add <n> --servers="server1,server2,..."
+mcpz groups add <n> --servers="server1,server2,..."
 ```
 
 Example:
 ```bash
 # Create a 'python-stack' group containing multiple servers
-mcpsx groups add "python-stack" --servers="python,pytorch,huggingface"
+mcpz groups add "python-stack" --servers="python,pytorch,huggingface"
 
 # Create a 'favorites' group
-mcpsx groups add "favorites" --servers="openai,anthropic"
+mcpz groups add "favorites" --servers="openai,anthropic"
 ```
 
 #### `groups remove`
@@ -127,7 +127,7 @@ mcpsx groups add "favorites" --servers="openai,anthropic"
 Remove a server group.
 
 ```bash
-mcpsx groups remove <n>
+mcpz groups remove <n>
 ```
 
 #### `groups list`
@@ -135,7 +135,7 @@ mcpsx groups remove <n>
 List all server groups.
 
 ```bash
-mcpsx groups list
+mcpz groups list
 ```
 
 ## Server & Tool Groups
@@ -148,14 +148,14 @@ Example workflow:
 
 ```bash
 # Create groups for different use cases
-mcpsx groups add "ai-models" --servers="openai,anthropic,llama"
-mcpsx groups add "data-tools" --servers="pandas,numpy,sklearn"
+mcpz groups add "ai-models" --servers="openai,anthropic,llama"
+mcpz groups add "data-tools" --servers="pandas,numpy,sklearn"
 
 # Use a specific group
-mcpsx run --servers="ai-models"
+mcpz run --servers="ai-models"
 
 # Combine groups with individual servers/tools
-mcpsx run --servers="ai-models,custom-server" --tools="predict"
+mcpz run --servers="ai-models,custom-server" --tools="predict"
 ```
 
 ### `add`
@@ -163,7 +163,7 @@ mcpsx run --servers="ai-models,custom-server" --tools="predict"
 Add a new MCP configuration.
 
 ```bash
-mcpsx add <n> [options]
+mcpz add <n> [options]
 ```
 
 Options:
@@ -173,7 +173,7 @@ Options:
 
 Example:
 ```bash
-mcpsx add "GPT Server" --command "node" --args "server.js,--port=3000" --env "API_KEY=abc123,DEBUG=true"
+mcpz add "GPT Server" --command "node" --args "server.js,--port=3000" --env "API_KEY=abc123,DEBUG=true"
 ```
 
 ### `remove`
@@ -181,7 +181,7 @@ mcpsx add "GPT Server" --command "node" --args "server.js,--port=3000" --env "AP
 Remove an MCP configuration.
 
 ```bash
-mcpsx remove <n>
+mcpz remove <n>
 ```
 
 ### `list`
@@ -189,7 +189,7 @@ mcpsx remove <n>
 List all MCP configurations.
 
 ```bash
-mcpsx list
+mcpz list
 ```
 
 ### `use`
@@ -197,7 +197,7 @@ mcpsx list
 Use a specific MCP configuration.
 
 ```bash
-mcpsx use <n>
+mcpz use <n>
 ```
 
 ### `help`
@@ -205,7 +205,7 @@ mcpsx use <n>
 Display help information.
 
 ```bash
-mcpsx help
+mcpz help
 ```
 
 ## Configuration
