@@ -1,6 +1,6 @@
-# VScode Extension
+# VSCode Extension
 
-The Extension is open-source and at https://github.com/jasonkneen/copilot-mcspx and in the mcspx-tweaks branch
+The Extension is open-source and at https://github.com/jasonkneen/mcpz-vscode and in the mcspx-tweaks branch
 
 
 # mcpz cli
