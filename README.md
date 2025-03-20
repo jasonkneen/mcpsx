@@ -1,3 +1,7 @@
+
+![mcpzit](https://github.com/user-attachments/assets/dfeed313-6960-4fc0-bd8f-7fa2050df700)
+
+
 # VSCode Extension
 
 The Extension is open-source and at https://github.com/jasonkneen/mcpz-vscode and in the mcspx-tweaks branch
